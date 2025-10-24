@@ -24,8 +24,8 @@ public class ProjetController {
     }
 
     @DeleteMapping("/deleteProjet/{idProject}")
-    void deleteProjet(@PathVariable Long id) {
-        projetService.deleteProjetById(id);
+    void deleteProjet(@PathVariable Long idProject) {
+        projetService.deleteProjetById(idProject);
     }
 
     @GetMapping("/findAllProject")
@@ -34,8 +34,8 @@ public class ProjetController {
     }
 
     @GetMapping("/findById/{idProject}")
-    Projet findProjetById(@PathVariable Long id) {
-        return projetService.findProjetById(id);
+    Projet findProjetById(@PathVariable Long idProject) {
+        return projetService.findProjetById(idProject);
     }
 
 }

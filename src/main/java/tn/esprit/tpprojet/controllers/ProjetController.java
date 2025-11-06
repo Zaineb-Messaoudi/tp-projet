@@ -2,6 +2,7 @@ package tn.esprit.tpprojet.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+import tn.esprit.tpprojet.DTO.ProjetDTO;
 import tn.esprit.tpprojet.entites.Projet;
 import tn.esprit.tpprojet.services.IProjetService;
 
@@ -37,5 +38,8 @@ public class ProjetController {
     Projet findProjetById(@PathVariable Long idProject) {
         return projetService.findProjetById(idProject);
     }
+
+    @GetMapping("/{idProject}")
+    ProjetDTO getProjet(@PathVariable Long idProject) {return projetService.getProjet(idProject);}
 
 }

@@ -2,6 +2,7 @@ package tn.esprit.tpprojet.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+import tn.esprit.tpprojet.DTO.ProjetDetailDTO;
 import tn.esprit.tpprojet.entites.ProjetDetail;
 import tn.esprit.tpprojet.services.IProjetDetail;
 
@@ -10,6 +11,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/projectdetailcontroller")
 public class ProjetDetaiLController {
+
     @Autowired
     IProjetDetail projetdetailService;
 
@@ -24,8 +26,8 @@ public class ProjetDetaiLController {
     }
 
     @DeleteMapping("/deleteProjetDetail/{idProject}")
-    void deleteProjetDetail(@PathVariable Long id) {
-        projetdetailService.deleteProjetDetailById(id);
+    void deleteProjetDetail(@PathVariable Long idProject) {
+        projetdetailService.deleteProjetDetailById(idProject);
     }
 
     @GetMapping("/findAllProject")
@@ -34,7 +36,12 @@ public class ProjetDetaiLController {
     }
 
     @GetMapping("/findById/{idProject}")
-    ProjetDetail findProjetDetailById(@PathVariable Long id) {
-        return projetdetailService.findProjetDetailById(id);
+    ProjetDetail findProjetDetailById(@PathVariable Long idProject) {
+        return projetdetailService.findProjetDetailById(idProject);
+    }
+
+    @GetMapping("/{id}/details")
+    public ProjetDetailDTO getDetails(@PathVariable Long id) {
+        return projetdetailService.getDetailsProjet(id);
     }
 }

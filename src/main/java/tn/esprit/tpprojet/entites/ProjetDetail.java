@@ -5,6 +5,7 @@ import jakarta.persistence.*;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
 
+import java.time.LocalDate;
 import java.util.Date;
 
 @Entity
@@ -21,7 +22,7 @@ public class ProjetDetail {
     String description;
     String technologie;
     long cout;
-    Date datedebut;
+    LocalDate datedebut;
 
     @OneToOne(mappedBy = "projetD")
     Projet projet;

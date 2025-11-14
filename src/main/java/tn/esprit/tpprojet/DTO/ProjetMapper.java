@@ -7,6 +7,6 @@ import tn.esprit.tpprojet.entites.Projet;
 @Mapper(componentModel = "spring")
 public interface ProjetMapper {
 
-    @Mapping(target = "libelleProjet", source = "nom")
+    @Mapping(target = "libelleProjet", source = "sujet")
     ProjetDTO toDTO(Projet projet);
 }

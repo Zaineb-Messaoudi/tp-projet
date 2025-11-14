@@ -42,4 +42,21 @@ public class ProjetController {
     @GetMapping("/{idProject}")
     ProjetDTO getProjet(@PathVariable Long idProject) {return projetService.getProjet(idProject);}
 
+    @PutMapping("/affecter-projet-a-projet-details/{IdProjet}/{IdProjetD}")
+    public void affecgterProjetAProjetDetail(@PathVariable("IdProjet") Long proejtId,
+                                             @PathVariable("IdProjetD") Long proejtDetailsId) {
+        projetService.assignProjetDetailToProjet(proejtId, proejtDetailsId);
+    }
+
+    @PutMapping("/affecter-projet-equipe/{IdEquipe}")
+    public void assignProjetToEquipe(@PathVariable("IdEquipe") Long equipeId, @RequestParam List<Long> idProject) {
+        projetService.assignProjetToEquipe(equipeId, idProject);
+    }
+
+    @PostMapping("/addProjetandassignProjetDetail/{idProjetD}")
+    public Projet addProjetandassignProjetDetail(@RequestBody Projet projet,
+                                                 @PathVariable("idProjetD") Long projetDetailId) {
+        return projetService.addProjectandAssignProjetDetails(projet, projetDetailId);
+    }
+
 }
